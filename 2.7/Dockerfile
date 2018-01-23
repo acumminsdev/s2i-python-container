@@ -43,7 +43,7 @@ RUN yum install -y centos-release-scl && \
     # size smaller.
     rpm -e --nodeps centos-logos && \
     yum clean all -y
-RUN . /opt/app-root/etc/scl_enable && pip install flask==0.12.2, flask-restplus==0.10.1, numpy==1.11.2, pandas==0.20.1, scipy==0.18.1, scikit-learn==0.17.1
+RUN . /usr/bin/scl enable python27 "pip install flask==0.12.2 flask-restplus==0.10.1 numpy==1.11.2 pandas==0.20.1 scipy==0.18.1 scikit-learn==0.17.1"
 
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH.
 COPY ./s2i/bin/ $STI_SCRIPTS_PATH
