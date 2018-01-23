@@ -58,7 +58,9 @@ COPY ./root/ /
 #   under random UID.
 RUN source scl_source enable python27 && \
     virtualenv ${APP_ROOT} && \
+    source ${APP_ROOT}/bin/activate &&\
     pip install flask==0.12.2 flask-restplus==0.10.1 numpy==1.11.2 pandas==0.20.1 scipy==0.18.1 scikit-learn==0.17.1 && \
+    deactivate && \
     chown -R 1001:0 ${APP_ROOT} && \
     fix-permissions ${APP_ROOT} && \
     rpm-file-permissions
