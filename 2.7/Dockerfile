@@ -42,7 +42,7 @@ RUN yum install -y centos-release-scl && \
     # Remove centos-logos (httpd dependency, ~20MB of graphics) to keep image
     # size smaller.
     rpm -e --nodeps centos-logos && \
-    pip install flask==0.12.2, flask-restplus==0.10.1, numpy==1.11.2, pandas==0.20.1, scipy==0.18.1, scikit-learn==0.17.1 && \
+    /opt/app-root/bin/pip install flask==0.12.2, flask-restplus==0.10.1, numpy==1.11.2, pandas==0.20.1, scipy==0.18.1, scikit-learn==0.17.1 && \
     yum clean all -y
 
 # Copy the S2I scripts from the specific language image to $STI_SCRIPTS_PATH.
